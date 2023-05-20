@@ -1,5 +1,5 @@
-const clause1 = [ // length 3
-    "If you want to ", "When you can't ", "It isn't enough to "
+const clauseArr1 = [ // length 3
+    "If you want to", "When you can't", "It isn't enough to", "You really enjoy to", "I know that you want to", "Everyone tries hard to", "I am aware that you dislike to", "It is self-evident that you adore to"
 ]
 
 const verbsArr = [ //641 verbs
@@ -10,24 +10,39 @@ const adverbsArr = [ //432 adverbs
     "absentmindedly", "accidentally", "actually", "additionally", "adequately", "affectionately", "almost", "already", "always", "angrily", "annually", "anxiously", "anyway", "apparently", "appropriately", "approximately", "badly", "barely", "beautifully", "beforehand", "bitterly", "boldly", "bravely", "briefly", "brightly", "briskly", "broadly", "busily", "calmly", "carefully", "casually", "certainly", "cheerfully", "clearly", "closely", "commonly", "completely", "constantly", "continually", "coolly", "correctly", "courageously", "crazily", "curiously", "daily", "daringly", "darkly", "deeply", "definitely", "deliberately", "delightfully", "desperately", "directly", "discreetly", "doubtfully", "dramatically", "duly", "eagerly", "early", "earnestly", "easily", "efficiently", "elegantly", "enormously", "enthusiastically", "equally", "especially", "essentially", "evenly", "eventually", "exactly", "exceedingly", "exceptionally", "excitedly", "exclusively", "explicitly", "expressly", "extensively", "externally", "extra", "extraordinarily", "fairly", "faithfully", "famously", "far", "fashionably", "fast", "fatally", "ferociously", "fiercely", "finally", "financially", "firmly", "first", "firstly", "fitfully", "flatly", "fluently", "foolishly", "forever", "formally", "formerly", "fortunately", "frankly", "frantically", "freely", "frequently", "fully", "furiously", "generally", "generously", "gently", "genuinely", "gigantically", "gladly", "gleefully", "gracefully", "gratefully", "greatly", "greedily", "happily", "hard", "hardly", "hastily", "honestly", "hopelessly", "hourly", "hugely", "hungrily", "hurriedly", "ideally", "immediately", "impartially", "impatiently", "implicitly", "incredibly", "increasingly", "independently", "indirectly", "inevitably", "infinitely", "informally", "inherently", "initially", "innocently", "inquisitively", "instantly", "intensely", "intently", "internally", "intimately", "invariably", "invisibly", "inwardly", "ironically", "irrationally", "irregularly", "irresistibly", "jokingly", "joyfully", "justly", "keenly", "kindly", "kissingly", "knowingly", "lastly", "late", "lately", "later", "lazily", "less", "lightly", "likely", "literally", "lively", "loosely", "loudly", "lovingly", "low", "luckily", "madly", "mainly", "majestically", "marginally", "massively", "meanwhile", "mechanically", "mentally", "merely", "merrily", "mildly", "mindfully", "minimally", "miraculously", "miserably", "mistakenly", "moderately", "monthly", "more", "moreover", "mortally", "mostly", "mysteriously", "narrowly", "naturally", "nearly", "neatly", "necessarily", "needlessly", "negatively", "nervously", "never", "nevertheless", "next", "nicely", "nightly", "noisily", "normally", "not", "now", "nowadays", "numbly", "obediently", "obviously", "occasionally", "oddly", "off", "officially", "often", "only", "openly", "optimistically", "ordinarily", "originally", "otherwise", "out", "outrageously", "outside", "over", "overall", "overly", "painfully", "partially", "particularly", "passionately", "patiently", "perfectly", "periodically", "permanently", "persistently", "personally", "physically", "plainly", "playfully", "pleasantly", "poorly", "positively", "possibly", "potentially", "powerfully", "precisely", "preferably", "previously", "primarily", "principally", "privately", "probably", "promptly", "properly", "proudly", "publicly", "punctually", "purely", "quaintly", "quickly", "quietly", "quite", "randomly", "rapidly", "rarely", "rather", "readily", "really", "reasonably", "recently", "recklessly", "regularly", "relatively", "relentlessly", "reliably", "reluctantly", "remarkably", "repeatedly", "reportedly", "respectively", "right", "rightfully", "rigidly", "roughly", "rudely", "sadly", "safely", "scarcely", "scientifically", "seamlessly", "secondly", "secretly", "seemingly", "seldom", "selfishly", "separately", "seriously", "shamelessly", "sharply", "sheepishly", "shortly", "shyly", "significantly", "silently", "simply", "sincerely", "singularly", "skillfully", "slightly", "slowly", "slyly", "smoothly", "so", "solely", "solemnly", "solidly", "sometimes", "soon", "specifically", "speedily", "spiritually", "spontaneously", "squarely", "steadily", "stealthily", "sternly", "still", "strangely", "strictly", "strongly", "structurally", "stubbornly", "subconsciously", "subsequently", "substantially", "subtly", "successfully", "suddenly", "sufficiently", "supposedly", "surely", "surprisingly", "suspiciously", "sweetly", "swiftly", "sympathetically", "systematically", "temporarily", "tensely", "terribly", "thankfully", "then", "therefore", "thoroughly", "thoughtfully", "thus", "tightly", "today", "together", "tomorrow", "totally", "touchingly", "traditionally", "tragically", "triumphantly", "truly", "truthfully", "twice", "ultimately", "unanimously", "unbearably", "unbelievably", "unconditionally", "undeniably", "unexpectedly", "unfortunately", "uniformly", "uniquely", "universally", "unquestionably", "urgently", "usefully", "usually", "utterly", "vaguely", "vainly", "valiantly", "vastly", "verbally", "vertically", "viciously", "vigorously", "violently", "virtually", "visibly", "vitally", "vividly", "voluntarily", "warmly", "weakly", "wearily", "weekly", "weirdly", "well", "wetly", "wholly", "wildly", "willfully", "wisely", "wonderfully", "wrongly", "yearly", "yesterday", "yet", "youthfully", "zealously", "zestfully"
 ]
 
-const clause2 = [ // length 3
-    "You should ", "You musn't ", "It is best to "
+const clauseArr2 = [ // length 3
+    "you should", "you musn't", "it is best to", "don't forget to", "don't you think it is time to", "why don't you try to", "never tell others to", "remember that people want to"
 ]
 
-console.log(adverbsArr.length);
+const randomMessageGenerator = (clauseArr1, clauseArr2, verbsArr, adverbsArr) => {
+    let randomMessage;
+    let clause1 = clauseArr1[Math.floor(Math.random() * clauseArr1.length)];
+    let clause2 = clauseArr2[Math.floor(Math.random() * clauseArr2.length)];
+    let verb1 = verbsArr[Math.floor(Math.random() * verbsArr.length)];
+    let verb2 = verbsArr[Math.floor(Math.random() * verbsArr.length)];
+    let adverb1 = adverbsArr[Math.floor(Math.random() * adverbsArr.length)];
+    let adverb2 = adverbsArr[Math.floor(Math.random() * adverbsArr.length)];
 
+    randomMessage = `${clause1} ${verb1} ${adverb1}, ${clause2} ${verb2} ${adverb2}.`;
+    
+    return randomMessage;
+}
 
-let name = "";
-console.log(process.version);
-process.stdin.setEncoding('utf8');
-console.log('Hello, please enter your name: ');
+function main() {
+    console.log('Welcome to the source of all wisdom, please enter your name: ');
+    process.stdin.setEncoding('utf8');
+    process.stdin.on('data', (input) => {
+        let name = input.trim();
+        if (name) {
+            console.log(`Greetings ${name}!`);
+        } else {
+            console.log('Greetings nameless soul!');
+        }
+        console.log("Your random bit of wisdom for today is:");
+        console.log("\t" + randomMessageGenerator(clauseArr1, clauseArr2, verbsArr, adverbsArr));
+        console.log("Now, go in peace and meditate about the meaning of this truth.");
+        process.stdin.pause();
+    });
+}
 
-process.stdin.on('data', (input) => {
-    name = input.trim();
-    if (name) {
-        console.log(`Hello ${name}`);
-    } else {
-        console.log('Hello mysterious user');
-    }
-    process.stdin.pause();
-});
+main();
