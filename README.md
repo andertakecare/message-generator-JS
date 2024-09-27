@@ -5,5 +5,5 @@ The message is presented as a proverb of wisdom and the results can span from no
 ## Usage
 Designed to be run in Node.js.
 When run, the program will ask the user to introduce their name.
-After this, the random message will be presented and the script will finalized.
->It is a fairly simply script as it was designed mainly to familiarize myself with git and github.
+After this, the random message will be presented and the script will finalize.
+>It is a fairly simple script as it was designed mainly to familiarize myself with git and github.
